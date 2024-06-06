@@ -15,12 +15,14 @@ namespace ComputerToArduino
         bool isConnected = false;
         String[] ports;
         SerialPort port;
+        private SingleShotDialogForm singleShotDialogForm;
 
         public Form1()
         {
             InitializeComponent();
             disableControls();
             getAvailableComPorts();
+            singleShotDialogForm = new SingleShotDialogForm(); // Create an instance of the popup form
 
             foreach (string port in ports)
             {
@@ -165,6 +167,41 @@ namespace ComputerToArduino
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             throw new System.NotImplementedException();
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            singleShotDialogForm.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            singleShotDialogForm.ShowDialog();
         }
     }
 }
