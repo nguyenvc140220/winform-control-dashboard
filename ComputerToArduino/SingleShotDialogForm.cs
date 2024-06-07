@@ -37,6 +37,8 @@ namespace ComputerToArduino
         private GroupBox groupBox1;
         private System.Windows.Forms.ListView listView1;
         private ColumnHeader columnHeader1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private ListBox listBox1;
         private Label label1;
 
         public SingleShotDialogForm()
@@ -48,11 +50,6 @@ namespace ComputerToArduino
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Check1",
-            ""}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Check 2");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Check3");
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,7 +57,8 @@ namespace ComputerToArduino
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // button1
@@ -71,6 +69,7 @@ namespace ComputerToArduino
             this.button1.TabIndex = 0;
             this.button1.Text = "Shot";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -84,8 +83,6 @@ namespace ComputerToArduino
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(348, 95);
@@ -97,20 +94,15 @@ namespace ComputerToArduino
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
+            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
-            this.listView1.Location = new System.Drawing.Point(207, 34);
+            this.listView1.Location = new System.Drawing.Point(12, 172);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(122, 85);
+            this.listView1.Size = new System.Drawing.Size(223, 76);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.MultiSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -135,14 +127,62 @@ namespace ComputerToArduino
             this.label1.TabIndex = 0;
             this.label1.Text = "Select";
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.comboBox2.Location = new System.Drawing.Point(12, 282);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 4;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "Bom 1",
+            "Bom 2",
+            "Bom 3",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4",
+            "Bom 4"});
+            this.listBox1.Location = new System.Drawing.Point(169, 276);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBox1.Size = new System.Drawing.Size(130, 30);
+            this.listBox1.TabIndex = 5;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
             // SingleShotDialogForm
             // 
-            this.ClientSize = new System.Drawing.Size(372, 165);
+            this.ClientSize = new System.Drawing.Size(372, 383);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.listView1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox1);
             this.Name = "SingleShotDialogForm";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -160,5 +200,26 @@ namespace ComputerToArduino
             this.DialogResult = DialogResult.Cancel;
 
         }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
