@@ -1,1 +1,29 @@
-﻿.idea
+﻿# Binaries
+bin/*
+obj/*
+
+# Build files
+*.suo
+*.user
+*.pdb
+*.ilk
+*.idea
+
+# IDE settings
+*.resharper
+*.vshost.exe
+*.vshost.log
+
+# Third-party libraries
+bin/ThirdPartyLibraries/*
+obj/ThirdPartyLibraries/*
+
+# Tests
+*.Test.cs
+*.Test.Designer.cs
+bin/Test/*
+obj/Test/*
+
+# Documentation
+bin/docs/*
+obj/docs/*
